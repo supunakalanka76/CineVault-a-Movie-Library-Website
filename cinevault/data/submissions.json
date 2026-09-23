@@ -1,1 +1,20 @@
-
+[
+    {
+        "id": "233e115d90765c28",
+        "firstName": "M.W.H.G. Supun",
+        "lastName": "Akalanka",
+        "email": "supunakalanka76@gmail.com",
+        "phone": "0785766794",
+        "comments": "Hello, how are you",
+        "submittedAt": "2026-09-23T19:15:20+00:00"
+    },
+    {
+        "id": "d5807e6517bd965c",
+        "firstName": "M.W.H.G. Supun",
+        "lastName": "Akalanka",
+        "email": "supunakalanka76@gmail.com",
+        "phone": "0785766794",
+        "comments": "How i reach you",
+        "submittedAt": "2026-09-23T19:24:54+00:00"
+    }
+]

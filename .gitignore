@@ -1,0 +1,8 @@
+# Composer dependencies
+vendor/
+
+# Private mail configuration
+config/mail.php
+
+# Contact form submissions
+data/submissions.json
