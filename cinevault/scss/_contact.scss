@@ -1,0 +1,268 @@
+/* =========================
+   Contact Section
+========================= */
+
+.contact {
+    padding: 70px 0 80px;
+
+    background-color: #f2f2f2;
+    color: #202020;
+}
+
+
+/* =========================
+   Contact Header
+========================= */
+
+.contact__header {
+    margin-bottom: 42px;
+}
+
+.contact__title {
+    margin: 0 0 12px;
+
+    color: #202020;
+
+    font-size: clamp(2rem, 3vw, 2.7rem);
+    font-weight: $font-weight-bold;
+    line-height: 1.2;
+
+    text-transform: uppercase;
+}
+
+.contact__subtitle {
+    max-width: 600px;
+
+    margin: 0;
+
+    color: #666666;
+
+    font-size: 0.9rem;
+    line-height: 1.7;
+}
+
+
+/* =========================
+   Contact Layout
+========================= */
+
+.contact__layout {
+    display: grid;
+
+    grid-template-columns:
+        minmax(0, 1fr)
+        minmax(320px, 0.85fr);
+
+    gap: 60px;
+
+    align-items: stretch;
+}
+
+
+/* =========================
+   Form
+========================= */
+
+.contact-form {
+    width: 100%;
+}
+
+.contact-form__row {
+    display: grid;
+
+    grid-template-columns:
+        repeat(2, minmax(0, 1fr));
+
+    gap: 22px;
+}
+
+
+/* =========================
+   Form Groups
+========================= */
+
+.form-group {
+    margin-bottom: 24px;
+}
+
+.form-group label {
+    display: block;
+
+    margin-bottom: 8px;
+
+    color: #333333;
+
+    font-size: 0.8rem;
+    font-weight: $font-weight-medium;
+}
+
+.form-group label span {
+    color: #b3261e;
+}
+
+
+/* =========================
+   Inputs
+========================= */
+
+.form-group input,
+.form-group textarea {
+    width: 100%;
+
+    padding: 12px 14px;
+
+    color: #222222;
+
+    background-color: #ffffff;
+
+    border: 1px solid #b7b7b7;
+    border-radius: 0;
+
+    outline: none;
+
+    font-family: $font-primary;
+    font-size: 0.9rem;
+
+    transition:
+        border-color 0.2s ease,
+        box-shadow 0.2s ease;
+}
+
+.form-group input {
+    height: 46px;
+}
+
+.form-group textarea {
+    min-height: 150px;
+
+    resize: vertical;
+}
+
+.form-group input:hover,
+.form-group textarea:hover {
+    border-color: #888888;
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+    border-color: $color-accent;
+
+    box-shadow:
+        0 0 0 2px rgba(217, 163, 0, 0.12);
+}
+
+
+/* =========================
+   Validation UI
+========================= */
+
+.form-error {
+    min-height: 18px;
+
+    display: block;
+
+    margin-top: 5px;
+
+    color: #b3261e;
+
+    font-size: 0.72rem;
+}
+
+.form-group.is-invalid input,
+.form-group.is-invalid textarea {
+    border-color: #b3261e;
+}
+
+.form-group.is-valid input,
+.form-group.is-valid textarea {
+    border-color: #3b7d3b;
+}
+
+.form-group.is-invalid label {
+    color: #b3261e;
+}
+
+.form-message--error {
+    color: #b3261e;
+}
+
+.form-message--success {
+    color: #2e6f40;
+}
+
+
+/* =========================
+   Form Message
+========================= */
+
+.form-message {
+    min-height: 20px;
+
+    margin-bottom: 14px;
+
+    font-size: 0.8rem;
+}
+
+
+/* =========================
+   Submit Button
+========================= */
+
+.contact-form__submit {
+    min-width: 135px;
+
+    padding: 13px 28px;
+
+    color: #111111;
+
+    background-color: $color-accent;
+
+    border: 1px solid $color-accent;
+
+    font-family: $font-primary;
+    font-size: 0.8rem;
+    font-weight: $font-weight-semibold;
+
+    cursor: pointer;
+
+    transition:
+        background-color 0.2s ease,
+        color 0.2s ease,
+        border-color 0.2s ease;
+}
+
+.contact-form__submit:hover {
+    color: $color-accent;
+
+    background-color: #111111;
+
+    border-color: #111111;
+}
+
+.contact-form__submit:focus-visible {
+    outline: 2px solid #111111;
+    outline-offset: 3px;
+}
+
+
+/* =========================
+   Map
+========================= */
+
+.contact__map {
+    min-height: 100%;
+
+    overflow: hidden;
+
+    background-color: #dddddd;
+}
+
+.contact__map iframe {
+    width: 100%;
+    height: 100%;
+    min-height: 500px;
+
+    display: block;
+
+    border: 0;
+}

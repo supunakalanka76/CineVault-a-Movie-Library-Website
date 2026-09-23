@@ -1,3 +1,4 @@
+// Tablet
 @media (max-width: $breakpoint-tablet) {
 
     .site-header,
@@ -79,8 +80,24 @@
     .movie-grid {
         grid-template-columns: repeat(2, minmax(0, 1fr));
     }
+
+    .contact {
+    padding: 60px 0 65px;
 }
 
+    .contact__layout {
+        grid-template-columns: 1fr;
+
+        gap: 45px;
+    }
+
+    .contact__map iframe {
+        min-height: 380px;
+    }
+}
+
+
+// Mobile
 @media (max-width: $breakpoint-mobile) {
 
     .container {
@@ -153,5 +170,43 @@
 
     .movie-card__title {
         font-size: 1.05rem;
+    }
+
+    .contact {
+    padding: 45px 0 50px;
+}
+
+    .contact__header {
+        margin-bottom: 30px;
+    }
+
+    .contact__title {
+        font-size: 1.75rem;
+    }
+
+    .contact__subtitle {
+        font-size: 0.85rem;
+    }
+
+    .contact-form__row {
+        grid-template-columns: 1fr;
+
+        gap: 0;
+    }
+
+    .form-group {
+        margin-bottom: 20px;
+    }
+
+    .contact-form__submit {
+        width: 100%;
+    }
+
+    .contact__layout {
+        gap: 35px;
+    }
+
+    .contact__map iframe {
+        min-height: 300px;
     }
 }
