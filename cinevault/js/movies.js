@@ -11,6 +11,7 @@ const searchInput = document.querySelector("#movie-search");
 const searchResults = document.querySelector("#search-results");
 
 const movieGrid = document.querySelector("#movie-grid");
+const movieStatus = document.querySelector("#movie-status");
 
 
 // states
@@ -74,6 +75,7 @@ function openSearchResults() {
 
 function closeSearchResults() {
     searchResults.hidden = true;
+    searchInput.removeAttribute("aria-activedescendant");
 
     searchInput.setAttribute(
         "aria-expanded", 
@@ -125,6 +127,8 @@ function renderSearchResults(results) {
         );
 
         button.dataset.index = index;
+        button.id = `search-result-${index}`;
+        button.setAttribute("aria-selected", "false");
 
         // Image
         const image = document.createElement("img");
@@ -332,6 +336,10 @@ function addMovie(show) {
 
     movieGrid.appendChild(card);
 
+    if (movieStatus) {
+        movieStatus.textContent = `${show.name || "Title"} added to favourites.`;
+    }
+
     // Reset search
     searchInput.value = "";
     currentResults = [];
@@ -353,7 +361,14 @@ movieGrid.addEventListener("click", (event) => {
     const card = removeButton.closest(".movie-card");
 
     if (card) {
+        const title = card.querySelector(".movie-card__title")?.textContent?.trim() || "Title";
         card.remove();
+
+        if (movieStatus) {
+            movieStatus.textContent = `${title} removed from favourites.`;
+        }
+
+        searchInput.focus();
     }
 });
 
@@ -406,15 +421,31 @@ function updateActiveResult(resultButtons) {
     
     resultButtons.forEach((button, index) => {
 
+        const isActive = index === activeResultIndex;
+
         button.classList.toggle(
             "is-active",
-            index === activeResultIndex
+            isActive
+        );
+
+        button.setAttribute(
+            "aria-selected",
+            String(isActive)
         );
     });
 
-    resultButtons[activeResultIndex]?.scrollIntoView({
-        block: "nearest",
-    });
+    const activeButton = resultButtons[activeResultIndex];
+
+    if (activeButton) {
+        searchInput.setAttribute(
+            "aria-activedescendant",
+            activeButton.id
+        );
+
+        activeButton.scrollIntoView({
+            block: "nearest",
+        });
+    }
 }
 
 // Close Seach when Clicking Outside

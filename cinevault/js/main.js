@@ -43,7 +43,9 @@ function closeMenu() {
     document.body.classList.remove("menu-open");
 }
 
-menuToggle.addEventListener("click", toggleMenu);
+if (menuToggle && mainNav) {
+    menuToggle.addEventListener("click", toggleMenu);
+}
 
 // Close menu when a navigation link is clicked
 navLinks.forEach((link) => {
@@ -60,4 +62,8 @@ document.addEventListener("keydown", (event) => {
 });
 
 // Set the current year in the footer
-document.getElementById("year").textContent = new Date().getFullYear();
+const yearElement = document.getElementById("year");
+
+if (yearElement) {
+    yearElement.textContent = new Date().getFullYear();
+}
