@@ -324,11 +324,48 @@ function validateForm() {
 }
 
 
-// Submit Validation
+// Server Validation Errors
+
+function handleServerErrors(errors) {
+
+    const fieldMap = {
+        firstName: firstNameInput,
+        lastName: lastNameInput,
+        email: emailInput,
+        phone: phoneInput,
+        comments: commentsInput
+    };
+
+    let firstInvalidInput = null;
+
+    Object.entries(errors).forEach(
+        ([fieldName, message]) => {
+
+            const input = fieldMap[fieldName];
+
+            if (!input) {
+                return;
+            }
+
+            showError(input, message);
+
+            if (!firstInvalidInput) {
+                firstInvalidInput = input;
+            }
+        }
+    );
+
+    if (firstInvalidInput) {
+        firstInvalidInput.focus();
+    }
+}
+
+
+// Submit Form
 
 contactForm.addEventListener(
     "submit",
-    (event) => {
+    async (event) => {
 
         event.preventDefault();
 
@@ -336,8 +373,8 @@ contactForm.addEventListener(
         formMessage.className =
             "form-message";
 
-        const isValid =
-            validateForm();
+        // Run frontend validation first
+        const isValid = validateForm();
 
         if (!isValid) {
 
@@ -351,17 +388,190 @@ contactForm.addEventListener(
             return;
         }
 
-        /*
-         * Step 9:
-         * Valid data will be sent to contact.php here.
-         */
 
-        formMessage.textContent =
-            "Form validation successful.";
+        // Prepare Form Data
 
-        formMessage.classList.add(
-            "form-message--success"
-        );
+        const formData = {
+            firstName:
+                firstNameInput.value.trim(),
+
+            lastName:
+                lastNameInput.value.trim(),
+
+            email:
+                emailInput.value.trim(),
+
+            phone:
+                phoneInput.value.trim(),
+
+            comments:
+                commentsInput.value.trim()
+        };
+
+
+        const submitButton =
+            contactForm.querySelector(
+                ".contact-form__submit"
+            );
+
+
+        // Loading State
+
+        submitButton.disabled = true;
+        submitButton.textContent =
+            "Submitting...";
+
+
+        
+        // Send Data to PHP
+
+        try {
+
+            const response = await fetch(
+                "api/contact.php",
+                {
+                    method: "POST",
+
+                    headers: {
+                        "Content-Type":
+                            "application/json"
+                    },
+
+                    body:
+                        JSON.stringify(formData)
+                }
+            );
+
+
+            let result;
+
+            try {
+
+                result =
+                    await response.json();
+
+            } catch {
+
+                throw new Error(
+                    "The server returned an invalid response."
+                );
+            }
+
+
+            
+            // PHP Validation Errors
+
+            if (
+                response.status === 422 &&
+                result.errors
+            ) {
+
+                handleServerErrors(
+                    result.errors
+                );
+
+                formMessage.textContent =
+                    result.message ||
+                    "Please correct the highlighted fields.";
+
+                formMessage.classList.add(
+                    "form-message--error"
+                );
+
+                return;
+            }
+
+            // Other Backend Errors
+
+            if (
+                !response.ok ||
+                !result.success
+            ) {
+
+                throw new Error(
+                    result.message ||
+                    "Unable to submit the form."
+                );
+            }
+
+            // Successful Submission
+
+            contactForm.reset();
+
+
+            // Remove green/red field states
+            contactForm
+                .querySelectorAll(
+                    ".form-group"
+                )
+                .forEach((group) => {
+
+                    group.classList.remove(
+                        "is-valid",
+                        "is-invalid"
+                    );
+                });
+
+
+            // Reset accessibility attributes
+            contactForm
+                .querySelectorAll(
+                    "input, textarea"
+                )
+                .forEach((input) => {
+
+                    input.removeAttribute(
+                        "aria-invalid"
+                    );
+
+                    input.removeAttribute(
+                        "aria-describedby"
+                    );
+                });
+
+
+            // Clear old field error messages
+            contactForm
+                .querySelectorAll(
+                    ".form-error"
+                )
+                .forEach((error) => {
+
+                    error.textContent = "";
+                });
+
+
+            // Show backend success message
+            formMessage.textContent =
+                result.message;
+
+            formMessage.classList.add(
+                "form-message--success"
+            );
+
+
+        } catch (error) {
+
+            console.error(
+                "Contact form submission failed:",
+                error
+            );
+
+            formMessage.textContent =
+                error.message ||
+                "Something went wrong. Please try again.";
+
+            formMessage.classList.add(
+                "form-message--error"
+            );
+
+        } finally {
+
+            submitButton.disabled = false;
+
+            submitButton.textContent =
+                "Submit";
+        }
     }
 );
 

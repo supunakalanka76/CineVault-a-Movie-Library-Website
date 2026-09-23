@@ -781,6 +781,11 @@ ul {
   border: 0;
 }
 
+.contact-form__submit:disabled {
+  opacity: 0.65;
+  cursor: not-allowed;
+}
+
 @media (max-width: 900px) {
   .site-header,
   .header-container {
