@@ -16,7 +16,7 @@ return <<<HTML
 <table role="presentation" width="100%" cellspacing="0" cellpadding="0" style="max-width:640px;background:#11141b;border:1px solid #252a35;border-radius:20px;">
 <tr><td style="padding:34px 36px;background:#0d0f14;border-bottom:1px solid #252a35;">
 <div style="font-size:26px;font-weight:800;letter-spacing:3px;color:#fff;">CINE<span style="color:#e5ad00;">VAULT</span></div>
-<div style="margin-top:7px;font-size:11px;letter-spacing:2px;color:#8e95a3;">DISCOVER &bull; COLLECT &bull; WATCH</div></td></tr>
+<div style="margin-top:7px;font-size:11px;letter-spacing:2px;color:#8e95a3;">DISCOVER • COLLECT • WATCH</div></td></tr>
 <tr><td style="padding:36px;">
 <span style="display:inline-block;padding:7px 12px;background:#2a2105;border:1px solid #5a4708;border-radius:20px;font-size:11px;font-weight:700;letter-spacing:1px;color:#f2c94c;">NEW MESSAGE RECEIVED</span>
 <h1 style="margin:22px 0 8px;font-size:28px;color:#fff;">New contact submission</h1>
@@ -34,6 +34,6 @@ return <<<HTML
 </tr></table>
 <p style="margin:28px 0 0;font-size:13px;color:#777f8e;">Reply directly to this email to respond to the visitor.</p>
 </td></tr>
-<tr><td align="center" style="padding:24px;background:#0d0f14;border-top:1px solid #252a35;font-size:11px;letter-spacing:1px;color:#6f7683;">CINEVAULT &bull; DISCOVER. COLLECT. WATCH.</td></tr>
+<tr><td align="center" style="padding:24px;background:#0d0f14;border-top:1px solid #252a35;font-size:11px;letter-spacing:1px;color:#6f7683;">CINEVAULT &bull; DISCOVER • COLLECT • WATCH</td></tr>
 </table></td></tr></table></body></html>
 HTML;

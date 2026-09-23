@@ -142,7 +142,7 @@
     color: $color-text;
 }
 
-.nav-link.active::after {
+.nav-link::after {
     content: "";
 
     position: absolute;
@@ -150,9 +150,21 @@
     bottom: 20px;
     left: 0;
 
-    height: 1px;
+    height: 2px;
 
-    background-color: $color-text;
+    background-color: $color-accent;
+
+    transform: scaleX(0);
+    transform-origin: right;
+
+    transition: transform 0.25s ease;
+}
+
+.nav-link:hover::after,
+.nav-link:focus-visible::after,
+.nav-link.active::after {
+    transform: scaleX(1);
+    transform-origin: left;
 }
 
 /* =========================

@@ -10,7 +10,7 @@ return <<<HTML
 <table role="presentation" width="100%" cellspacing="0" cellpadding="0" style="max-width:640px;background:#11141b;border:1px solid #252a35;border-radius:20px;">
 <tr><td align="center" style="padding:38px 36px;background:#0d0f14;border-bottom:1px solid #252a35;">
 <div style="font-size:28px;font-weight:800;letter-spacing:3px;color:#fff;">CINE<span style="color:#e5ad00;">VAULT</span></div>
-<div style="margin-top:8px;font-size:11px;letter-spacing:2px;color:#8e95a3;">DISCOVER &bull; COLLECT &bull; WATCH</div></td></tr>
+<div style="margin-top:8px;font-size:11px;letter-spacing:2px;color:#8e95a3;">DISCOVER • COLLECT • WATCH</div></td></tr>
 <tr><td style="padding:42px 36px;">
 <span style="display:inline-block;padding:7px 12px;background:#17251c;border:1px solid #284632;border-radius:20px;font-size:11px;font-weight:700;letter-spacing:1px;color:#79d494;">MESSAGE RECEIVED</span>
 <h1 style="margin:22px 0 14px;font-size:30px;line-height:38px;color:#fff;">Thanks for getting in touch.</h1>
@@ -24,7 +24,7 @@ return <<<HTML
 <p style="margin:8px 0 0;font-size:15px;font-weight:700;color:#fff;">CineVault Team</p></div>
 </td></tr>
 <tr><td align="center" style="padding:26px;background:#0d0f14;border-top:1px solid #252a35;">
-<div style="font-size:12px;font-weight:700;letter-spacing:1.5px;color:#e5ad00;">DISCOVER. COLLECT. WATCH.</div>
+<div style="font-size:12px;font-weight:700;letter-spacing:1.5px;color:#e5ad00;">DISCOVER • COLLECT • WATCH</div>
 <div style="margin-top:7px;font-size:11px;color:#666e7b;">This is an automatic confirmation from CineVault.</div>
 </td></tr></table></td></tr></table></body></html>
 HTML;

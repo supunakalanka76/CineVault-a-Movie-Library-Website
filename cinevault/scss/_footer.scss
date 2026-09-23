@@ -1,0 +1,155 @@
+.site-footer {
+    background: #111111;
+    color: #ffffff;
+
+    &__main {
+        padding: 64px 0 52px;
+    }
+
+    &__grid {
+        display: grid;
+        grid-template-columns: 1.4fr 1fr 1fr;
+        gap: 64px;
+        align-items: start;
+    }
+
+    &__brand {
+        max-width: 360px;
+    }
+
+    &__logo {
+        display: inline-flex;
+        align-items: center;
+        gap: 12px;
+        color: #ffffff;
+        text-decoration: none;
+        margin-bottom: 20px;
+    }
+
+    &__logo-mark {
+        width: 12px;
+        height: 12px;
+        background: #e5ad00;
+        border-radius: 50%;
+        box-shadow:
+            0 0 0 5px rgba(229, 173, 0, 0.12),
+            0 0 24px rgba(229, 173, 0, 0.28);
+    }
+
+    &__logo-text {
+        font-size: 24px;
+        font-weight: 700;
+        letter-spacing: -0.5px;
+    }
+
+    &__tagline {
+        margin: 0 0 14px;
+        color: #e5ad00;
+        font-size: 14px;
+        font-weight: 600;
+        letter-spacing: 1.2px;
+        text-transform: uppercase;
+    }
+
+    &__description {
+        margin: 0;
+        max-width: 330px;
+        color: #a7a7a7;
+        font-size: 14px;
+        line-height: 1.8;
+    }
+
+    &__heading {
+        margin: 0 0 22px;
+        color: #ffffff;
+        font-size: 15px;
+        font-weight: 600;
+        letter-spacing: 0.5px;
+        text-transform: uppercase;
+    }
+
+    &__links,
+    &__contact-list {
+        list-style: none;
+        margin: 0;
+        padding: 0;
+    }
+
+    &__links {
+        display: flex;
+        flex-direction: column;
+        gap: 13px;
+    }
+
+    &__link {
+        display: inline-block;
+        color: #a7a7a7;
+        font-size: 14px;
+        text-decoration: none;
+        transition:
+            color 0.2s ease,
+            transform 0.2s ease;
+
+        &:hover {
+            color: #e5ad00;
+            transform: translateX(4px);
+        }
+
+        &:focus-visible {
+            color: #e5ad00;
+            outline: 2px solid #e5ad00;
+            outline-offset: 5px;
+            border-radius: 2px;
+        }
+    }
+
+    &__contact-list {
+        display: flex;
+        flex-direction: column;
+        gap: 16px;
+    }
+
+    &__contact-item {
+        color: #a7a7a7;
+        font-size: 14px;
+        line-height: 1.7;
+    }
+
+    &__contact-label {
+        display: block;
+        margin-bottom: 3px;
+        color: #ffffff;
+        font-size: 12px;
+        font-weight: 600;
+        letter-spacing: 0.5px;
+        text-transform: uppercase;
+    }
+
+    &__bottom {
+        border-top: 1px solid #292929;
+    }
+
+    &__bottom-inner {
+        min-height: 76px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 24px;
+    }
+
+    &__copyright,
+    &__credit {
+        margin: 0;
+        color: #777777;
+        font-size: 12px;
+        line-height: 1.6;
+    }
+
+    &__credit {
+        text-align: right;
+
+        span {
+            color: #e5ad00;
+        }
+    }
+}

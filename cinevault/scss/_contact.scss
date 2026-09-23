@@ -125,7 +125,8 @@
 
     transition:
         border-color 0.2s ease,
-        box-shadow 0.2s ease;
+        box-shadow 0.2s ease,
+        background-color 0.2s ease;
 }
 
 .form-group input {
@@ -228,7 +229,8 @@
     transition:
         background-color 0.2s ease,
         color 0.2s ease,
-        border-color 0.2s ease;
+        border-color 0.2s ease,
+        transform 0.2s ease;
 }
 
 .contact-form__submit:hover {
@@ -237,6 +239,12 @@
     background-color: #111111;
 
     border-color: #111111;
+
+    transform: translateY(-2px);
+}
+
+.contact-form__submit:active {
+    transform: translateY(0);
 }
 
 .contact-form__submit:focus-visible {
@@ -268,6 +276,7 @@
 }
 
 .contact-form__submit:disabled {
-    opacity: 0.65;
+    opacity: 0.72;
     cursor: not-allowed;
+    transform: none;
 }

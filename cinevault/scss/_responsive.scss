@@ -1,6 +1,9 @@
+/* ========================================
+   Step 11.3 — Responsive Tablet & Mobile
+======================================== */
+
 // Tablet
 @media (max-width: $breakpoint-tablet) {
-
     .site-header,
     .header-container {
         min-height: 64px;
@@ -8,43 +11,35 @@
 
     .main-nav {
         position: absolute;
-
         top: 100%;
         left: 0;
-
         width: 100%;
-
         max-height: 0;
-
         overflow: hidden;
-
         background-color: $color-background;
-
+        border-top: 1px solid transparent;
         opacity: 0;
         visibility: hidden;
-
         transition:
             max-height 0.35s ease,
             opacity 0.25s ease,
-            visibility 0.25s ease;
+            visibility 0.25s ease,
+            border-color 0.25s ease;
     }
 
     .main-nav.is-open {
         max-height: 500px;
-
+        border-top-color: $color-border;
         opacity: 1;
         visibility: visible;
     }
 
     .nav-list {
         width: min(100% - 40px, $container-width);
-
         margin-inline: auto;
-        padding: 15px 0 25px;
-
+        padding: 12px 0 22px;
         flex-direction: column;
         align-items: stretch;
-
         gap: 0;
     }
 
@@ -52,12 +47,14 @@
         border-bottom: 1px solid $color-border;
     }
 
+    .nav-list li:last-child {
+        border-bottom: 0;
+    }
+
     .nav-link {
         width: 100%;
-
-        padding: 16px 0;
-
-        font-size: 0.8rem;
+        padding: 15px 0;
+        font-size: 0.85rem;
     }
 
     .nav-link.active::after {
@@ -69,39 +66,87 @@
         margin-left: auto;
     }
 
+    .intro {
+        padding: 58px 0;
+    }
+
+    .intro__text {
+        max-width: 720px;
+        font-size: 0.95rem;
+        line-height: 1.75;
+    }
+
     .favourites {
-        padding: 45px 0 60px;
+        padding: 52px 0 64px;
     }
 
     .favourites__header {
-        align-items: flex-start;
+        align-items: center;
+        gap: 32px;
+    }
+
+    .favourites__title {
+        flex-shrink: 0;
+    }
+
+    .movie-search {
+        width: min(100%, 360px);
     }
 
     .movie-grid {
         grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 24px;
+    }
+
+    .movie-card__content {
+        padding: 16px 18px 19px;
+    }
+
+    .movie-card__title {
+        font-size: 1.05rem;
+    }
+
+    .movie-card__description {
+        font-size: 0.8rem;
+        line-height: 1.6;
     }
 
     .contact {
-    padding: 60px 0 65px;
-}
+        padding: 60px 0 68px;
+    }
+
+    .contact__header {
+        margin-bottom: 36px;
+    }
 
     .contact__layout {
         grid-template-columns: 1fr;
+        gap: 42px;
+    }
 
-        gap: 45px;
+    .contact__map {
+        min-height: 360px;
     }
 
     .contact__map iframe {
-        min-height: 380px;
+        height: 360px;
+        min-height: 360px;
     }
 }
 
-
 // Mobile
 @media (max-width: $breakpoint-mobile) {
+    html {
+        scroll-padding-top: 72px;
+    }
 
     .container {
         width: min(100% - 30px, $container-width);
+    }
+
+    .site-header,
+    .header-container {
+        min-height: 62px;
     }
 
     .logo-text {
@@ -117,14 +162,18 @@
         width: min(100% - 30px, $container-width);
     }
 
+    .nav-link {
+        padding: 14px 0;
+    }
+
     .intro {
-        padding: 42px 0;
+        padding: 40px 0 42px;
     }
 
     .intro__title {
         margin-bottom: 12px;
-
         font-size: 1.75rem;
+        line-height: 1.2;
     }
 
     .intro__text {
@@ -133,35 +182,54 @@
     }
 
     .favourites {
-        padding: 38px 0 50px;
+        padding: 36px 0 48px;
     }
 
     .favourites__header {
         flex-direction: column;
-
-        gap: 20px;
+        align-items: stretch;
+        gap: 18px;
     }
 
     .favourites__title {
         font-size: 1.3rem;
+        line-height: 1.3;
     }
 
     .movie-search {
+        width: 100%;
         max-width: none;
     }
 
+    .movie-search__input {
+        height: 44px;
+        font-size: 0.82rem;
+    }
+
     .favourites__divider {
-        margin: 25px 0 35px;
+        margin: 24px 0 32px;
     }
 
     .movie-grid {
         grid-template-columns: 1fr;
-
-        gap: 25px;
+        gap: 24px;
     }
 
+    // A wider image ratio prevents movie cards becoming excessively tall
+    // on narrow phones while keeping a cinematic presentation.
     .movie-card__image-wrapper {
-        aspect-ratio: 4 / 5;
+        aspect-ratio: 16 / 10;
+    }
+
+    .movie-card__image {
+        object-position: center;
+    }
+
+    .movie-card__remove {
+        top: 9px;
+        right: 9px;
+        width: 34px;
+        height: 34px;
     }
 
     .movie-card__content {
@@ -169,44 +237,216 @@
     }
 
     .movie-card__title {
+        margin-bottom: 7px;
         font-size: 1.05rem;
     }
 
+    .movie-card__description {
+        font-size: 0.78rem;
+        line-height: 1.55;
+    }
+
+    .search-results {
+        max-height: 320px;
+    }
+
     .contact {
-    padding: 45px 0 50px;
-}
+        padding: 44px 0 48px;
+    }
 
     .contact__header {
-        margin-bottom: 30px;
+        margin-bottom: 28px;
     }
 
     .contact__title {
         font-size: 1.75rem;
+        line-height: 1.2;
     }
 
     .contact__subtitle {
         font-size: 0.85rem;
+        line-height: 1.65;
     }
 
     .contact-form__row {
         grid-template-columns: 1fr;
-
         gap: 0;
     }
 
     .form-group {
-        margin-bottom: 20px;
+        margin-bottom: 19px;
+    }
+
+    .form-group input {
+        height: 46px;
+    }
+
+    .form-group textarea {
+        min-height: 145px;
     }
 
     .contact-form__submit {
         width: 100%;
+        min-height: 48px;
     }
 
     .contact__layout {
-        gap: 35px;
+        gap: 32px;
+    }
+
+    .contact__map {
+        min-height: 280px;
     }
 
     .contact__map iframe {
-        min-height: 300px;
+        height: 280px;
+        min-height: 280px;
+    }
+}
+
+// Small mobile
+@media (max-width: 420px) {
+    .container,
+    .nav-list {
+        width: min(100% - 24px, $container-width);
+    }
+
+    .logo {
+        gap: 8px;
+    }
+
+    .logo-text {
+        font-size: 1.05rem;
+    }
+
+    .logo-icon {
+        width: 27px;
+        height: 27px;
+    }
+
+    .intro__title,
+    .contact__title {
+        font-size: 1.6rem;
+    }
+
+    .favourites__title {
+        font-size: 1.22rem;
+    }
+
+    .movie-card__image-wrapper {
+        aspect-ratio: 3 / 2;
+    }
+
+    .movie-card__content {
+        padding: 13px 15px 16px;
+    }
+
+    .contact__map,
+    .contact__map iframe {
+        height: 260px;
+        min-height: 260px;
+    }
+}
+
+// Footer — tablet
+@media (max-width: 991px) {
+    .site-footer {
+        &__main {
+            padding: 52px 0 44px;
+        }
+
+        &__grid {
+            grid-template-columns: 1.3fr 1fr;
+            gap: 44px 40px;
+        }
+
+        &__brand {
+            grid-column: 1 / -1;
+            max-width: 520px;
+        }
+    }
+}
+
+// Footer — mobile
+@media (max-width: 767px) {
+    .site-footer {
+        &__main {
+            padding: 42px 0 34px;
+        }
+
+        &__grid {
+            grid-template-columns: 1fr;
+            gap: 32px;
+        }
+
+        &__brand {
+            grid-column: auto;
+        }
+
+        &__logo {
+            margin-bottom: 16px;
+        }
+
+        &__logo-text {
+            font-size: 22px;
+        }
+
+        &__tagline {
+            margin-bottom: 12px;
+            font-size: 13px;
+        }
+
+        &__description {
+            max-width: 100%;
+            line-height: 1.7;
+        }
+
+        &__heading {
+            margin-bottom: 17px;
+        }
+
+        &__links {
+            gap: 11px;
+        }
+
+        &__contact-list {
+            gap: 14px;
+        }
+
+        &__bottom-inner {
+            min-height: auto;
+            padding-top: 20px;
+            padding-bottom: 20px;
+            flex-direction: column;
+            align-items: flex-start;
+            gap: 7px;
+        }
+
+        &__credit {
+            text-align: left;
+        }
+    }
+}
+
+@media (max-width: 420px) {
+    .site-footer {
+        &__main {
+            padding: 38px 0 30px;
+        }
+
+        &__grid {
+            gap: 28px;
+        }
+
+        &__description,
+        &__link,
+        &__contact-item {
+            font-size: 13px;
+        }
+
+        &__bottom-inner {
+            padding-top: 18px;
+            padding-bottom: 18px;
+        }
     }
 }
