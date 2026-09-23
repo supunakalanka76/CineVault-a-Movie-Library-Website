@@ -1,0 +1,29 @@
+<svg
+    xmlns="http://www.w3.org/2000/svg"
+    viewBox="0 0 300 450"
+>
+    <rect width="300" height="450" fill="#202020"/>
+
+    <g
+        fill="none"
+        stroke="#777"
+        stroke-width="8"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+    >
+        <rect x="75" y="125" width="150" height="120" rx="8"/>
+        <circle cx="120" cy="165" r="16"/>
+        <path d="M85 225l45-45 35 35 22-22 28 32"/>
+    </g>
+
+    <text
+        x="150"
+        y="300"
+        fill="#999"
+        text-anchor="middle"
+        font-family="Arial, sans-serif"
+        font-size="18"
+    >
+        No Image
+    </text>
+</svg>

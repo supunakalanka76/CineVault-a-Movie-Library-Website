@@ -1,0 +1,10 @@
+{
+    "liveSassCompile.settings.formats": [
+        {
+            "format": "expanded",
+            "extensionName": ".css",
+            "savePath": "/cinevault/css"
+        }
+    ],
+    "liveSassCompile.settings.generateMap": false
+}

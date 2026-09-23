@@ -1,0 +1,39 @@
+/* =========================
+   Site Introduction
+========================= */
+
+.intro {
+    padding: 64px 0;
+
+    background-color: #111111;
+}
+
+.intro__container {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.intro__title {
+    margin: 0 0 14px;
+
+    color: $color-text;
+
+    font-size: clamp(2rem, 3vw, 2.75rem);
+    font-weight: $font-weight-bold;
+    line-height: 1.15;
+
+    text-transform: uppercase;
+}
+
+.intro__text {
+    max-width: 560px;
+
+    margin: 0;
+
+    color: $color-text-muted;
+
+    font-size: 0.95rem;
+    font-weight: $font-weight-regular;
+    line-height: 1.8;
+}

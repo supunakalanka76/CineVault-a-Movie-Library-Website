@@ -1,0 +1,695 @@
+@font-face {
+  font-family: "Poppins";
+  src: url("../assets/fonts/Poppins-Regular.woff2") format("woff2");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Poppins";
+  src: url("../assets/fonts/Poppins-Medium.woff2") format("woff2");
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Poppins";
+  src: url("../assets/fonts/Poppins-SemiBold.woff2") format("woff2");
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Poppins";
+  src: url("../assets/fonts/Poppins-Bold.woff2") format("woff2");
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  font-family: "Poppins", Arial, Helvetica, sans-serif;
+  color: #ffffff;
+  font-weight: 400;
+  background-color: #0d0d0d;
+}
+
+body.menu-open {
+  overflow: hidden;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+button,
+input,
+textarea {
+  font: inherit;
+}
+
+button {
+  border: 0;
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.container {
+  width: min(100% - 40px, 1180px);
+  margin-inline: auto;
+}
+
+.site-header {
+  position: relative;
+  z-index: 1000;
+  width: 100%;
+  min-height: 72px;
+  background-color: #0d0d0d;
+}
+
+.header-container {
+  min-height: 72px;
+  display: flex;
+  align-items: center;
+}
+
+/* =========================
+   Logo
+========================= */
+.logo {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  flex-shrink: 0;
+}
+
+.logo-text {
+  color: #ffffff;
+  font-size: 1.25rem;
+  font-weight: 700;
+  letter-spacing: -0.5px;
+}
+
+.logo-icon {
+  position: relative;
+  display: block;
+  width: 32px;
+  height: 32px;
+}
+
+.logo-icon__center {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 10px;
+  height: 10px;
+  background-color: #d9a300;
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.logo-icon__ray {
+  position: absolute;
+  top: 2px;
+  left: 50%;
+  width: 3px;
+  height: 10px;
+  background-color: #d9a300;
+  border-radius: 10px;
+  transform-origin: 50% 14px;
+}
+
+.logo-icon__ray--1 {
+  transform: translateX(-50%) rotate(0deg);
+}
+
+.logo-icon__ray--2 {
+  transform: translateX(-50%) rotate(45deg);
+}
+
+.logo-icon__ray--3 {
+  transform: translateX(-50%) rotate(90deg);
+}
+
+.logo-icon__ray--4 {
+  transform: translateX(-50%) rotate(135deg);
+}
+
+.logo-icon__ray--5 {
+  transform: translateX(-50%) rotate(180deg);
+}
+
+.logo-icon__ray--6 {
+  transform: translateX(-50%) rotate(225deg);
+}
+
+.logo-icon__ray--7 {
+  transform: translateX(-50%) rotate(270deg);
+}
+
+.logo-icon__ray--8 {
+  transform: translateX(-50%) rotate(315deg);
+}
+
+/* =========================
+   Navigation
+========================= */
+.main-nav {
+  margin-left: auto;
+}
+
+.nav-list {
+  display: flex;
+  align-items: center;
+  gap: 32px;
+}
+
+.nav-link {
+  position: relative;
+  display: inline-block;
+  padding: 27px 0 25px;
+  color: #b7b7b7;
+  font-size: 0.75rem;
+  font-weight: 500;
+  text-transform: uppercase;
+  transition: color 0.25s ease, opacity 0.25s ease;
+}
+
+.nav-link:hover,
+.nav-link:focus-visible,
+.nav-link.active {
+  color: #ffffff;
+}
+
+.nav-link.active::after {
+  content: "";
+  position: absolute;
+  right: 0;
+  bottom: 20px;
+  left: 0;
+  height: 1px;
+  background-color: #ffffff;
+}
+
+/* =========================
+   Hamburger
+========================= */
+.menu-toggle {
+  width: 36px;
+  height: 36px;
+  margin-left: 32px;
+  padding: 6px;
+  display: none;
+  flex-direction: column;
+  justify-content: center;
+  gap: 6px;
+  color: #ffffff;
+  background: transparent;
+  cursor: pointer;
+}
+
+.menu-toggle span {
+  display: block;
+  width: 100%;
+  height: 2px;
+  background-color: currentColor;
+  transition: transform 0.25s ease, opacity 0.25s ease;
+}
+
+/* Hamburger -> X */
+.menu-toggle.is-active span:nth-child(1) {
+  transform: translateY(8px) rotate(45deg);
+}
+
+.menu-toggle.is-active span:nth-child(2) {
+  opacity: 0;
+}
+
+.menu-toggle.is-active span:nth-child(3) {
+  transform: translateY(-8px) rotate(-45deg);
+}
+
+.menu-toggle:focus-visible {
+  outline: 2px solid #d9a300;
+  outline-offset: 3px;
+}
+
+/* =========================
+   Hero / Main Visual
+========================= */
+.hero {
+  width: 100%;
+  overflow: hidden;
+  background-color: #0d0d0d;
+}
+
+.hero__image {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+/* =========================
+   Site Introduction
+========================= */
+.intro {
+  padding: 64px 0;
+  background-color: #111111;
+}
+
+.intro__container {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.intro__title {
+  margin: 0 0 14px;
+  color: #ffffff;
+  font-size: clamp(2rem, 3vw, 2.75rem);
+  font-weight: 700;
+  line-height: 1.15;
+  text-transform: uppercase;
+}
+
+.intro__text {
+  max-width: 560px;
+  margin: 0;
+  color: #b7b7b7;
+  font-size: 0.95rem;
+  font-weight: 400;
+  line-height: 1.8;
+}
+
+/* =========================
+   Favourites
+========================= */
+.favourites {
+  padding: 48px 0 70px;
+  background-color: #1b1b1b;
+}
+
+/* =========================
+   Favourites Header
+========================= */
+.favourites__header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 30px;
+}
+
+.favourites__title {
+  margin: 0;
+  color: #ffffff;
+  font-size: 1.45rem;
+  font-weight: 600;
+  line-height: 1.3;
+}
+
+/* =========================
+   Search
+========================= */
+.movie-search {
+  position: relative;
+  width: 100%;
+  max-width: 360px;
+}
+
+.movie-search__icon {
+  position: absolute;
+  top: 50%;
+  left: 14px;
+  width: 18px;
+  height: 18px;
+  fill: #b7b7b7;
+  transform: translateY(-50%);
+  pointer-events: none;
+}
+
+.movie-search__input {
+  width: 100%;
+  height: 42px;
+  padding: 0 16px 0 43px;
+  color: #ffffff;
+  background-color: transparent;
+  border: 1px solid #777777;
+  border-radius: 2px;
+  outline: none;
+  font-family: "Poppins", Arial, Helvetica, sans-serif;
+  font-size: 0.8rem;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.movie-search__input::-moz-placeholder {
+  color: #9d9d9d;
+}
+
+.movie-search__input::placeholder {
+  color: #9d9d9d;
+}
+
+.movie-search__input:hover {
+  border-color: #a5a5a5;
+}
+
+.movie-search__input:focus {
+  border-color: #d9a300;
+  box-shadow: 0 0 0 2px rgba(217, 163, 0, 0.15);
+}
+
+/* =========================
+   Divider
+========================= */
+.favourites__divider {
+  width: 100%;
+  height: 1px;
+  margin: 30px 0 50px;
+  background-color: #b7b7b7;
+}
+
+/* =========================
+   Movie Grid
+========================= */
+.movie-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 20px;
+}
+
+/* =========================
+   Movie Card
+========================= */
+.movie-card {
+  min-width: 0;
+  overflow: hidden;
+  background-color: #3a3a3a;
+}
+
+.movie-card__image-wrapper {
+  position: relative;
+  aspect-ratio: 3/4;
+  overflow: hidden;
+  background-color: #111111;
+}
+
+.movie-card__image {
+  width: 100%;
+  height: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+
+/* =========================
+   Remove Button
+========================= */
+.movie-card__remove {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  width: 36px;
+  height: 36px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+  color: #d8d8d8;
+  background-color: rgba(30, 30, 30, 0.9);
+  border: 0;
+  font-size: 1.35rem;
+  font-weight: 300;
+  line-height: 1;
+  cursor: pointer;
+  transition: color 0.2s ease, background-color 0.2s ease;
+}
+
+.movie-card__remove:hover {
+  color: #ffffff;
+  background-color: rgba(0, 0, 0, 0.95);
+}
+
+.movie-card__remove:focus-visible {
+  outline: 2px solid #d9a300;
+  outline-offset: 2px;
+}
+
+/* =========================
+   Movie Content
+========================= */
+.movie-card__content {
+  padding: 15px 18px 18px;
+}
+
+.movie-card__title {
+  margin: 0 0 8px;
+  color: #ffffff;
+  font-size: 1.15rem;
+  font-weight: 400;
+  line-height: 1.3;
+}
+
+.movie-card__description {
+  display: -webkit-box;
+  margin: 0;
+  overflow: hidden;
+  color: #e0e0e0;
+  font-size: 0.78rem;
+  font-weight: 400;
+  line-height: 1.55;
+  -webkit-box-orient: vertical;
+  line-clamp: 3;
+  -webkit-line-clamp: 3;
+}
+
+/* =========================
+   Search Results
+========================= */
+.movie-search__field {
+  position: relative;
+}
+
+.search-results {
+  position: absolute;
+  top: calc(100% + 6px);
+  left: 0;
+  z-index: 50;
+  width: 100%;
+  max-height: 380px;
+  overflow-y: auto;
+  background-color: #242424;
+  border: 1px solid #555555;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.35);
+}
+
+.search-results[hidden] {
+  display: none;
+}
+
+.search-result {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 10px;
+  color: #ffffff;
+  text-align: left;
+  background: transparent;
+  border: 0;
+  border-bottom: 1px solid #3d3d3d;
+  font-family: "Poppins", Arial, Helvetica, sans-serif;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.search-result:last-child {
+  border-bottom: 0;
+}
+
+.search-result:hover,
+.search-result:focus-visible,
+.search-result.is-active {
+  background-color: #333333;
+  outline: none;
+}
+
+.search-result__image {
+  width: 48px;
+  height: 68px;
+  flex-shrink: 0;
+  -o-object-fit: cover;
+     object-fit: cover;
+  background-color: #111111;
+}
+
+.search-result__content {
+  min-width: 0;
+}
+
+.search-result__title {
+  display: block;
+  margin-bottom: 4px;
+  font-size: 0.85rem;
+  font-weight: 500;
+}
+
+.search-result__meta {
+  display: block;
+  color: #b7b7b7;
+  font-size: 0.72rem;
+}
+
+.search-results__message {
+  margin: 0;
+  padding: 16px;
+  color: #b7b7b7;
+  font-size: 0.8rem;
+  text-align: center;
+}
+
+/* =========================
+   Movie Card Animation
+========================= */
+.movie-card--added {
+  animation: movie-card-enter 0.35s ease;
+}
+
+@keyframes movie-card-enter {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+@media (max-width: 900px) {
+  .site-header,
+  .header-container {
+    min-height: 64px;
+  }
+  .main-nav {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    max-height: 0;
+    overflow: hidden;
+    background-color: #0d0d0d;
+    opacity: 0;
+    visibility: hidden;
+    transition: max-height 0.35s ease, opacity 0.25s ease, visibility 0.25s ease;
+  }
+  .main-nav.is-open {
+    max-height: 500px;
+    opacity: 1;
+    visibility: visible;
+  }
+  .nav-list {
+    width: min(100% - 40px, 1180px);
+    margin-inline: auto;
+    padding: 15px 0 25px;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 0;
+  }
+  .nav-list li {
+    border-bottom: 1px solid #333333;
+  }
+  .nav-link {
+    width: 100%;
+    padding: 16px 0;
+    font-size: 0.8rem;
+  }
+  .nav-link.active::after {
+    display: none;
+  }
+  .menu-toggle {
+    display: flex;
+    margin-left: auto;
+  }
+  .favourites {
+    padding: 45px 0 60px;
+  }
+  .favourites__header {
+    align-items: flex-start;
+  }
+  .movie-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+@media (max-width: 600px) {
+  .container {
+    width: min(100% - 30px, 1180px);
+  }
+  .logo-text {
+    font-size: 1.1rem;
+  }
+  .logo-icon {
+    width: 29px;
+    height: 29px;
+  }
+  .nav-list {
+    width: min(100% - 30px, 1180px);
+  }
+  .intro {
+    padding: 42px 0;
+  }
+  .intro__title {
+    margin-bottom: 12px;
+    font-size: 1.75rem;
+  }
+  .intro__text {
+    font-size: 0.9rem;
+    line-height: 1.7;
+  }
+  .favourites {
+    padding: 38px 0 50px;
+  }
+  .favourites__header {
+    flex-direction: column;
+    gap: 20px;
+  }
+  .favourites__title {
+    font-size: 1.3rem;
+  }
+  .movie-search {
+    max-width: none;
+  }
+  .favourites__divider {
+    margin: 25px 0 35px;
+  }
+  .movie-grid {
+    grid-template-columns: 1fr;
+    gap: 25px;
+  }
+  .movie-card__image-wrapper {
+    aspect-ratio: 4/5;
+  }
+  .movie-card__content {
+    padding: 14px 16px 17px;
+  }
+  .movie-card__title {
+    font-size: 1.05rem;
+  }
+}

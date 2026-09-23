@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+
+        <meta 
+            name="viewport" 
+            content="width=device-width, initial-scale=1.0"
+        >
+        <meta 
+            name="description" 
+            content="CineVault - Discover and collect your favourite movies."
+        >
+
+        <title>CineVault | Movie Library</title>
+
+        <link rel="stylesheet" href="css/style.css">
+    </head>
+
+    <body>
+        <!-- Header Section -->
+        <header class="site-header">
+            <div class="container header-container">
+                <!-- Logo -->
+                <a href="#" class="logo" aria-label="CineVault home">
+                    <span class="logo-icon" aria-hidden="true">
+                        <span class="logo-icon__center"></span>
+
+                        <span class="logo-icon__ray logo-icon__ray--1"></span>
+                        <span class="logo-icon__ray logo-icon__ray--2"></span>
+                        <span class="logo-icon__ray logo-icon__ray--3"></span>
+                        <span class="logo-icon__ray logo-icon__ray--4"></span>
+                        <span class="logo-icon__ray logo-icon__ray--5"></span>
+                        <span class="logo-icon__ray logo-icon__ray--6"></span>
+                        <span class="logo-icon__ray logo-icon__ray--7"></span>
+                        <span class="logo-icon__ray logo-icon__ray--8"></span>
+                    </span>
+                    
+                    <span class="logo-text">CineVault</span>
+
+                </a>
+
+                <!-- Desktop Navigation -->
+                <nav 
+                    class="main-nav"
+                    id="main-navigation"
+                    aria-label="Main navigation"
+                >
+                    <ul class="nav-list">
+                        <li>
+                            <a href="#home" class="nav-link active">
+                                Home
+                            </a>
+                        </li>
+
+                        <li>
+                            <a href="#screens" class="nav-link">
+                                Our Screens
+                            </a>
+                        </li>
+
+                        <li>
+                            <a href="#schedule" class="nav-link">
+                                Schedule
+                            </a>
+                        </li>
+
+                        <li>
+                            <a href="#movies" class="nav-link">
+                                Movie Library
+                            </a>
+                        </li>
+
+                        <li>
+                            <a href="#contact" class="nav-link">
+                                Location &amp; Contact
+                            </a>
+                        </li>
+                    </ul>
+                </nav>
+
+                <!-- Hamburger -->
+                <button 
+                    class="menu-toggle"
+                    type="button"
+                    aria-controls="main-navigation"
+                    aria-label="Open navigation menu"
+                    aria-expanded="false"
+                >
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+
+            </div>
+        </header>
+
+        <main id="home">
+            <!-- Main Visual / Hero -->
+            <section class="hero" aria-label="CineVault cinema experience">
+                <img 
+                    src="assets/images/hero/hero-cinema.jpg" 
+                    alt="Cinema auditorium with rows of seats facing a large screen" 
+                    class="hero__image"
+                >
+            </section>
+
+            <!-- Site Introduction -->
+            <section class="intro" id="movies">
+                <div class="container intro__container">
+
+                    <h1 class="intro__title">
+                        Movie Library
+                    </h1>
+
+                    <p class="intro__text">
+                        Discover movies and shows worth remembering.
+                        Search for your favourites, build your personal
+                        collection, and keep the stories you love all in one place.
+                    </p>
+
+                </div>
+            </section>
+
+            <!-- Collect Your Favourites -->
+            <section class="favourites" aria-labelledby="favourites-title">
+                <div class="container">
+
+                    <!-- Section Header -->
+                    <div class="favourites__header">
+
+                        <h2 
+                            class="favourites__title"
+                            id="favourites-title"
+                        >
+                            Collect Your Favourites
+                        </h2>
+
+                        <!-- Search -->
+                        <div class="movie-search">
+
+                            <div class="movie-search__field">
+
+                                <svg
+                                    class="movie-search__icon"
+                                    viewBox="0 0 24 24"
+                                    aria-hidden="true"
+                                >
+                                    <path
+                                        d="M11 4a7 7 0 1 0 4.9 12l4.55 4.55 1.4-1.4L17.3 14.6A7 7 0 0 0 11 4Zm0 2a5 5 0 1 1 0 10 5 5 0 0 1 0-10Z"
+                                    />
+                                </svg>
+
+                                <input
+                                    type="search"
+                                    id="movie-search"
+                                    class="movie-search__input"
+                                    placeholder="Search title and add to grid..."
+                                    aria-label="Search movies"
+                                    aria-controls="search-results"
+                                    aria-expanded="false"
+                                    autocomplete="off"
+                                >
+
+                            </div>
+
+                            <div
+                                class="search-results"
+                                id="search-results"
+                                role="listbox"
+                                hidden
+                            ></div>
+
+                        </div>
+
+                    </div>
+
+                    <div class="favourites__divider"></div>
+
+                    <!-- Movie Grid -->
+                    <div 
+                        class="movie-grid"
+                        id="movie-grid"
+                        aria-live="polite"
+                    >
+
+                        <!-- Batman Returns -->
+                        <article class="movie-card">
+
+                            <div class="movie-card__image-wrapper">
+
+                                <img 
+                                    src="assets/images/movies/batman-returns.jpg" 
+                                    alt="Batman Returns" 
+                                    class="movie-card__image"
+                                >
+
+                                <button 
+                                    class="movie-card__remove"
+                                    type="button"
+                                    aria-label="Remove Batman Returns from favourites"
+                                >
+                                    &times;
+                                </button>
+
+                            </div>
+
+                            <div class="movie-card__content">
+
+                                <h3 class="movie-card__title">
+                                    Batman Returns
+                                </h3>
+
+                                <p class="movie-card__description">
+                                    Batman Returns is a 1992 American superhero film directed by Tim Burton, based on the DC Comics character Batman. It is the sequel to Burton's 1989 film Batman and stars Michael Keaton as the title character, alongside Danny DeVito, Michelle Pfeiffer, Christopher Walken, and Michael Gough.
+                                </p>
+
+                            </div>
+
+                        </article>
+
+                        <!-- Wild Wild West -->
+                        <article class="movie-card">
+
+                            <div class="movie-card__image-wrapper">
+
+                                <img 
+                                    src="assets/images/movies/wild-wild-west.jpg" 
+                                    alt="Wild Wild West" 
+                                    class="movie-card__image"
+                                >
+
+                                <button 
+                                    class="movie-card__remove"
+                                    type="button"
+                                    aria-label="Remove Wild Wild West from favourites"
+                                >
+                                    &times;
+                                </button>
+
+                            </div>
+
+                            <div class="movie-card__content">
+
+                                <h3 class="movie-card__title">
+                                    Wild Wild West
+                                </h3>
+
+                                <p class="movie-card__description">
+                                    Wild Wild West is a 1999 American steampunk Western action-comedy film directed by Barry Sonnenfeld. The film stars Will Smith and Kevin Kline as two U.S. Secret Service agents who are sent to the Old West to investigate the assassination of President Ulysses S. Grant and to stop a diabolical inventor from using his mechanical spider to take over the United States.
+                                </p>
+
+                            </div>
+                            
+                        </article>
+
+                        <!-- The Amazing Spiderman -->
+                        <article class="movie-card">
+
+                            <div class="movie-card__image-wrapper">
+
+                                <img 
+                                    src="assets/images/movies/amazing-spiderman.jpg" 
+                                    alt="The Amazing Spiderman" 
+                                    class="movie-card__image"
+                                >
+
+                                <button 
+                                    class="movie-card__remove"
+                                    type="button"
+                                    aria-label="Remove The Amazing Spiderman from favourites"
+                                >
+                                    &times;
+                                </button>
+
+                            </div>
+
+                            <div class="movie-card__content">
+
+                                <h3 class="movie-card__title">
+                                    Amazing Spiderman
+                                </h3>
+
+                                <p class="movie-card__description">
+                                    The Amazing Spiderman is a 2012 American superhero film directed by Marc Webb, based on the Marvel Comics character Spider-Man. It stars Andrew Garfield as the title character, alongside Emma Stone, Rhys Ifans, and James Franco.
+                                </p>
+
+                            </div>
+                            
+                        </article>
+
+                    </div>
+                </div>
+
+            </section>
+
+            
+        </main>
+
+
+        <script src="js/main.js" defer></script>
+    </body>
+</html>

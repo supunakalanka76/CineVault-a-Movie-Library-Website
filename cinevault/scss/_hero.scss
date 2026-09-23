@@ -1,0 +1,16 @@
+/* =========================
+   Hero / Main Visual
+========================= */
+
+.hero {
+    width: 100%;
+    overflow: hidden;
+    background-color: $color-background;
+}
+
+.hero__image {
+    display: block;
+
+    width: 100%;
+    height: auto;
+}
